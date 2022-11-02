@@ -1,0 +1,239 @@
+{
+    "openapi": "3.0.0",
+    "info": {
+        "title": "L5 OpenApi",
+        "description": "L5 Swagger OpenApi description",
+        "contact": {
+            "email": "vanikdabaghian@gmail.com"
+        },
+        "license": {
+            "name": "Apache 2.0",
+            "url": "https://www.apache.org/licenses/LICENSE-2.0.html"
+        },
+        "version": "1.0.0",
+        "x-logo": {
+            "url": "https://via.placeholder.com/190x90.png?text=L5-Swagger"
+        }
+    },
+    "paths": {
+        "/api/auth/login": {
+            "post": {
+                "tags": [
+                    "Auth"
+                ],
+                "summary": "Get a JWT via given credentials",
+                "description": "Get a JWT via given credentials",
+                "operationId": "getAuthToken",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#Illuminate/Http/Request|null|string"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Successful operation",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#Illuminate/Http/JsonResponse"
+                                }
+                            }
+                        }
+                    },
+                    "401": {
+                        "description": "Unauthorized"
+                    }
+                }
+            }
+        },
+        "/api/auth/drivers": {
+            "get": {
+                "tags": [
+                    "Drivers List"
+                ],
+                "summary": "Get list of drivers",
+                "description": "Returns list of drivers",
+                "operationId": "getAllDrvrs",
+                "responses": {
+                    "200": {
+                        "description": "Successful operation",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#Collection|Model[]"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/auth/driversWithCar": {
+            "get": {
+                "tags": [
+                    "Drivers List"
+                ],
+                "summary": "Get list of drivers with cars",
+                "description": "Returns list of drivers with cars",
+                "operationId": "getAllDrvrsWithCars",
+                "responses": {
+                    "200": {
+                        "description": "Successful operation",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#Collection|Model[]"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/auth/driver/setCar": {
+            "post": {
+                "tags": [
+                    "Get/Set Car"
+                ],
+                "summary": "Set driver car",
+                "description": "Returns driver",
+                "operationId": "setDriverCar",
+                "parameters": [
+                    {
+                        "name": "request",
+                        "in": "path",
+                        "description": "Sended request",
+                        "required": true
+                    }
+                ],
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "AssociateCarRequest"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Success",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "Driver"
+                                }
+                            }
+                        }
+                    },
+                    "422": {
+                        "description": "Driver does not exist!"
+                    }
+                }
+            }
+        },
+        "/api/auth/driver/getCar": {
+            "get": {
+                "tags": [
+                    "Get/Set Car"
+                ],
+                "summary": "Get car of driver",
+                "description": "Get car of driver using driver id",
+                "operationId": "getDriverCar",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "Request"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Successful operation",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "Driver"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/auth/cars": {
+            "get": {
+                "tags": [
+                    "Cars"
+                ],
+                "summary": "Get list of cars",
+                "description": "Returns list of cars",
+                "operationId": "getAllCars",
+                "responses": {
+                    "200": {
+                        "description": "Successful operation",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#Collection"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/auth/addCar": {
+            "post": {
+                "tags": [
+                    "Cars"
+                ],
+                "summary": "Add car",
+                "description": "Returns new car",
+                "operationId": "addCarr",
+                "parameters": [
+                    {
+                        "name": "request",
+                        "in": "path",
+                        "description": "Sended request",
+                        "required": true
+                    }
+                ],
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "AddCarRequest"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Success",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "Car"
+                                }
+                            }
+                        }
+                    },
+                    "422": {
+                        "description": "validation failed!"
+                    }
+                }
+            }
+        }
+    }
+}

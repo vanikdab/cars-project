@@ -21,6 +21,6 @@ Route::group(['middleware' => 'api', 'prefix' => 'auth'], function ($router) {
     Route::get('driversWithCar', [\App\Http\Controllers\DriverController::class, 'withCar']);
     Route::post('driver/setCar', [\App\Http\Controllers\DriverController::class, 'setCar']);
     Route::get('driver/getCar', [\App\Http\Controllers\DriverController::class, 'getCar']);
-    Route::get('cars', [\App\Http\Controllers\DriverController::class, 'all']);
+    Route::get('cars', [\App\Http\Controllers\DriverController::class, 'allCars']);
     Route::post('addCar', [\App\Http\Controllers\DriverController::class, 'addCar']);
 });

@@ -52,4 +52,9 @@ class DriverService
     {
         return Car::query()->create($request->all());
     }
+
+    public function allCars()
+    {
+        return Car::all();
+    }
 }

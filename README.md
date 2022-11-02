@@ -9,6 +9,7 @@
 
 ## Install
 composer install
+composer require darkaonline/l5-swagger
 
 php artisan migrate --seed
 
@@ -17,5 +18,10 @@ php artisan migrate --seed
 email admin@admin.ru
 
 password 11111111
+
+set token in url (?token={token}) or set it in Bearer Token 
+
+## For api docs 
+/api/documentation
 
 ##Use...

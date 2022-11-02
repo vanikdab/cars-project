@@ -18,9 +18,26 @@ class AuthController extends Controller
     }
 
     /**
-     * Get a JWT via given credentials.
-     *
-     * @return \Illuminate\Http\JsonResponse
+     * @OA\Post(
+     *      path="/api/auth/login",
+     *      operationId="getAuthToken",
+     *      tags={"Auth"},
+     *      summary="Get a JWT via given credentials",
+     *      description="Get a JWT via given credentials",
+     *      @OA\RequestBody(
+     *          required=true,
+     *          @OA\JsonContent(ref="#Illuminate/Http/Request|null|string")
+     *      ),
+     *      @OA\Response(
+     *          response=200,
+     *          description="Successful operation",
+     *          @OA\JsonContent(ref="#Illuminate/Http/JsonResponse")
+     *       ),
+     *      @OA\Response(
+     *          response=401,
+     *          description="Unauthorized",
+     *       )
+     *     )
      */
     public function login()
     {
@@ -30,18 +47,6 @@ class AuthController extends Controller
             return response()->json(['error' => 'Unauthorized'], 401);
         }
 
-        return $this->respondWithToken($token);
-    }
-
-    /**
-     * Get the token array structure.
-     *
-     * @param  string $token
-     *
-     * @return \Illuminate\Http\JsonResponse
-     */
-    protected function respondWithToken($token)
-    {
         return response()->json([
             'access_token' => $token,
             'token_type' => 'bearer',
