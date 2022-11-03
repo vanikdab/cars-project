@@ -26,12 +26,13 @@ class AuthController extends Controller
      *      description="Get a JWT via given credentials",
      *      @OA\RequestBody(
      *          required=true,
-     *          @OA\JsonContent(ref="#Illuminate/Http/Request|null|string")
+     *          description="Successful operation Illuminate/Http/Request",
+     *
      *      ),
      *      @OA\Response(
      *          response=200,
-     *          description="Successful operation",
-     *          @OA\JsonContent(ref="#Illuminate/Http/JsonResponse")
+     *          description="Successful operation Illuminate/Http/JsonResponse",
+     *
      *       ),
      *      @OA\Response(
      *          response=401,

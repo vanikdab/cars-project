@@ -27,8 +27,7 @@ class DriverController extends Controller
      *      description="Returns list of drivers",
      *      @OA\Response(
      *          response=200,
-     *          description="Successful operation",
-     *          @OA\JsonContent(ref="#Collection|Model[]")
+     *          description="Successful operation Collection|Model[]"
      *       )
      *     )
      */
@@ -46,8 +45,7 @@ class DriverController extends Controller
      *      description="Returns list of drivers with cars",
      *      @OA\Response(
      *          response=200,
-     *          description="Successful operation",
-     *          @OA\JsonContent(ref="#Collection|Model[]")
+     *          description="Successful operation Collection|Model[]"
      *       )
      *     )
      */
@@ -71,12 +69,11 @@ class DriverController extends Controller
      *      ),
      *      @OA\RequestBody(
      *          required=true,
-     *          @OA\JsonContent(ref="AssociateCarRequest")
+     *          description="AssociateCarRequest"
      *      ),
      *      @OA\Response(
      *          response=200,
-     *          description="Success",
-     *          @OA\JsonContent(ref="Driver")
+     *          description="Success App\Models\Driver"
      *      ),
      *      @OA\Response(
      *          response=422,
@@ -108,8 +105,7 @@ class DriverController extends Controller
      *      ),
      *      @OA\Response(
      *          response=200,
-     *          description="Successful operation",
-     *          @OA\JsonContent(ref="Driver")
+     *          description="Success App\Models\Car"
      *       )
      *     )
      */
@@ -134,8 +130,7 @@ class DriverController extends Controller
      *      description="Returns list of cars",
      *      @OA\Response(
      *          response=200,
-     *          description="Successful operation",
-     *          @OA\JsonContent(ref="#Collection")
+     *          description="Successful operation Collection"
      *       )
      *     )
      */
@@ -159,12 +154,11 @@ class DriverController extends Controller
      *      ),
      *      @OA\RequestBody(
      *          required=true,
-     *          @OA\JsonContent(ref="AddCarRequest")
+     *          description="AddCarRequest"
      *      ),
      *      @OA\Response(
      *          response=200,
-     *          description="Success",
-     *          @OA\JsonContent(ref="Car")
+     *          description="Success App\Models\Car"
      *      ),
      *      @OA\Response(
      *          response=422,

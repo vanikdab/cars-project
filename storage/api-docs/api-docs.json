@@ -25,25 +25,12 @@
                 "description": "Get a JWT via given credentials",
                 "operationId": "getAuthToken",
                 "requestBody": {
-                    "required": true,
-                    "content": {
-                        "application/json": {
-                            "schema": {
-                                "$ref": "#Illuminate/Http/Request|null|string"
-                            }
-                        }
-                    }
+                    "description": "Successful operation Illuminate/Http/Request",
+                    "required": true
                 },
                 "responses": {
                     "200": {
-                        "description": "Successful operation",
-                        "content": {
-                            "application/json": {
-                                "schema": {
-                                    "$ref": "#Illuminate/Http/JsonResponse"
-                                }
-                            }
-                        }
+                        "description": "Successful operation Illuminate/Http/JsonResponse"
                     },
                     "401": {
                         "description": "Unauthorized"
@@ -61,14 +48,7 @@
                 "operationId": "getAllDrvrs",
                 "responses": {
                     "200": {
-                        "description": "Successful operation",
-                        "content": {
-                            "application/json": {
-                                "schema": {
-                                    "$ref": "#Collection|Model[]"
-                                }
-                            }
-                        }
+                        "description": "Successful operation Collection|Model[]"
                     }
                 }
             }
@@ -83,14 +63,7 @@
                 "operationId": "getAllDrvrsWithCars",
                 "responses": {
                     "200": {
-                        "description": "Successful operation",
-                        "content": {
-                            "application/json": {
-                                "schema": {
-                                    "$ref": "#Collection|Model[]"
-                                }
-                            }
-                        }
+                        "description": "Successful operation Collection|Model[]"
                     }
                 }
             }
@@ -112,25 +85,12 @@
                     }
                 ],
                 "requestBody": {
-                    "required": true,
-                    "content": {
-                        "application/json": {
-                            "schema": {
-                                "$ref": "AssociateCarRequest"
-                            }
-                        }
-                    }
+                    "description": "AssociateCarRequest",
+                    "required": true
                 },
                 "responses": {
                     "200": {
-                        "description": "Success",
-                        "content": {
-                            "application/json": {
-                                "schema": {
-                                    "$ref": "Driver"
-                                }
-                            }
-                        }
+                        "description": "Success App\\Models\\Driver"
                     },
                     "422": {
                         "description": "Driver does not exist!"
@@ -158,14 +118,7 @@
                 },
                 "responses": {
                     "200": {
-                        "description": "Successful operation",
-                        "content": {
-                            "application/json": {
-                                "schema": {
-                                    "$ref": "Driver"
-                                }
-                            }
-                        }
+                        "description": "Success App\\Models\\Car"
                     }
                 }
             }
@@ -180,14 +133,7 @@
                 "operationId": "getAllCars",
                 "responses": {
                     "200": {
-                        "description": "Successful operation",
-                        "content": {
-                            "application/json": {
-                                "schema": {
-                                    "$ref": "#Collection"
-                                }
-                            }
-                        }
+                        "description": "Successful operation Collection"
                     }
                 }
             }
@@ -209,25 +155,12 @@
                     }
                 ],
                 "requestBody": {
-                    "required": true,
-                    "content": {
-                        "application/json": {
-                            "schema": {
-                                "$ref": "AddCarRequest"
-                            }
-                        }
-                    }
+                    "description": "AddCarRequest",
+                    "required": true
                 },
                 "responses": {
                     "200": {
-                        "description": "Success",
-                        "content": {
-                            "application/json": {
-                                "schema": {
-                                    "$ref": "Car"
-                                }
-                            }
-                        }
+                        "description": "Success App\\Models\\Car"
                     },
                     "422": {
                         "description": "validation failed!"
